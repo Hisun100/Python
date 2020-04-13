@@ -1,5 +1,8 @@
 # 导入第三方模块
 import matplotlib.pyplot as plt
+# 中文乱码和坐标轴负号的处理
+plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']
+plt.rcParams['axes.unicode_minus'] = False
 
 # 设置绘图的主题风格（不妨使用R中的ggplot分隔）
 plt.style.use('ggplot')
@@ -10,10 +13,6 @@ labels = ['中专','大专','本科','硕士','其他']
 
 explode = [0,0.1,0,0,0]  # 用于突出显示大专学历人群
 colors=['#9999ff','#ff9999','#7777aa','#2442aa','#dd5555'] # 自定义颜色
-
-# 中文乱码和坐标轴负号的处理
-plt.rcParams['font.sans-serif'] = ['Microsoft YaHei']
-plt.rcParams['axes.unicode_minus'] = False
 
 # 将横、纵坐标轴标准化处理，保证饼图是一个正圆，否则为椭圆
 plt.axes(aspect='equal')
@@ -46,3 +45,4 @@ plt.title('芝麻信用失信用户教育水平分布')
 
 # 显示图形
 plt.show()
+plt.savefig('用户固有属性群体分布.png',bbox_inches="tight") #保存图片，裁剪图表多余的空白区
